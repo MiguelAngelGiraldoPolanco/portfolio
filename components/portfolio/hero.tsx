@@ -1,73 +1,56 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowDown, Mail, User } from "lucide-react";
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Profile Photo Placeholder */}
-        <div className="mb-8 flex justify-center">
-        <div className="relative w-50 h-50 rounded-full border-2 border-primary/20 overflow-hidden shadow-xl">
-          <Image 
-            src="/profile.jpg" 
-            alt="Miguel Ángel Giraldo"
-            fill 
-            className="object-cover" 
-            priority 
-          />
-        </div>
-      </div>
+    <section className="min-h-[70vh] flex flex-col items-center justify-center px-6 py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center max-w-4xl"
+      >
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="text-muted-foreground uppercase tracking-[0.3em] text-sm mb-6"
+        >
+          Portfolio
+        </motion.p>
+        
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground leading-[1.1]"
+        >
+          AI Software Engineer
+        </motion.h1>
+        
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="flex items-center justify-center gap-4 mt-6"
+        >
+          <span className="h-px w-12 bg-border" />
+          <p className="text-lg md:text-xl text-muted-foreground tracking-wide">
+            Fullstack Developer
+          </p>
+          <span className="h-px w-12 bg-border" />
+        </motion.div>
 
-        {/* Main Heading */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
-          <span className="text-foreground">Hi, I&apos;m </span>
-          <span className="text-primary">Miguel Angel Giraldo</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-medium">
-          Software & AI Engineer
-        </p>
-
-        {/* Description */}
-        <p className="text-muted-foreground max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
-          Building high-availability distributed systems. Expert in Microservices,
-          Hexagonal Architecture, and the strategic integration of AI agents within cloud environments.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            size="lg"
-            onClick={() => scrollToSection("projects")}
-            className="text-base px-8 bg-primary text-primary-foreground hover:bg-primary/90"
-          >
-            View Projects
-            <ArrowDown className="ml-2 h-4 w-4" />
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={() => scrollToSection("contact")}
-            className="text-base px-8 border-primary/30 hover:bg-primary/10 hover:border-primary/50"
-          >
-            <Mail className="mr-2 h-4 w-4" />
-            Contact Me
-          </Button>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <ArrowDown className="h-6 w-6 text-muted-foreground" />
-      </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className="mt-12 text-muted-foreground max-w-2xl mx-auto leading-relaxed tracking-wide"
+        >
+          Crafting intelligent digital experiences through the intersection of artificial intelligence and modern web development.
+        </motion.p>
+      </motion.div>
     </section>
   );
 }

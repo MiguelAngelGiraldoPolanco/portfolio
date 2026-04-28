@@ -1,64 +1,123 @@
-const skills = [
-  { name: "Java/Sping Boot", category: "frontend" },
-  { name: "React", category: "frontend" },
-  { name: "LangGraph", category: "frontend" },
-  { name: "Python", category: "frontend" },
-  { name: "Next.js", category: "frontend" },
-  { name: "TypeScript", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-  { name: "Node.js", category: "backend" },
-  { name: "Express", category: "backend" },
-  { name: "PostgreSQL", category: "backend" },
-  { name: "MongoDB", category: "backend" },
-  { name: "Git", category: "tools" },
-  { name: "REST APIs", category: "tools" },
-  { name: "GraphQL", category: "tools" },
-  { name: "Docker", category: "tools" },
+"use client";
+
+import { motion } from "framer-motion";
+import { BentoCard } from "./bento-card";
+import { MapPin, Briefcase, Coffee, Github, Linkedin, Mail } from "lucide-react";
+
+const stats = [
+  { label: "Years Experience", value: "5+" },
+  { label: "Projects Delivered", value: "40+" },
+  { label: "AI Models Deployed", value: "15+" },
 ];
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="text-primary">Me</span>
+    <section className="px-6 py-24">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <p className="text-muted-foreground uppercase tracking-[0.3em] text-sm mb-3">
+            About
+          </p>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+            Get to Know Me
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Bio */}
-          <div className="space-y-6">
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              I am a Software Engineer dedicated to building high-performance applications and scalable architectures. 
-              With a strong foundation in Java and Spring Boot, I specialize in creating 
-              robust backend systems that prioritize reliability and clean code.
-            </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              My approach combines traditional engineering excellence with Modern AI Integration, 
-              allowing me to build smarter solutions—from automated microservices to intelligent data flows.
-               Whether working on mission-critical systems or innovative freelance projects, my goal is always the same:
-                delivering high-quality, maintainable software that solves real-world challenges.
-            </p>
-          </div>
-
-          {/* Skills Grid */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6 text-foreground">
-              Tech Stack
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <span
-                  key={skill.name}
-                  className="px-4 py-2 bg-secondary rounded-lg text-sm font-medium text-foreground border border-border hover:border-primary/50 hover:bg-primary/10 transition-colors duration-200"
-                >
-                  {skill.name}
-                </span>
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+          {/* Location Card */}
+          <BentoCard delay={0}>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <MapPin className="w-5 h-5 text-primary" />
+              </div>
+              <span className="text-sm text-muted-foreground uppercase tracking-wider">
+                Location
+              </span>
             </div>
+            <p className="text-xl font-medium text-foreground">Cali, Colombia</p>
+            <p className="text-sm text-muted-foreground mt-1">UTC-5</p>
+          </BentoCard>
+
+          {/* Status Card */}
+          <BentoCard delay={0.1}>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-green-500/10 rounded-lg">
+                <Briefcase className="w-5 h-5 text-green-600" />
+              </div>
+              <span className="text-sm text-muted-foreground uppercase tracking-wider">
+                Status
+              </span>
+            </div>
+            <p className="text-xl font-medium text-foreground">Open to Work</p>
+            <p className="text-sm text-muted-foreground mt-1">Full-time / Contract</p>
+          </BentoCard>
+
+          {/* Personal Touch Card */}
+          <BentoCard delay={0.2}>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-amber-500/10 rounded-lg">
+                <Coffee className="w-5 h-5 text-amber-600" />
+              </div>
+              <span className="text-sm text-muted-foreground uppercase tracking-wider">
+                Fuel
+              </span>
+            </div>
+            <p className="text-xl font-medium text-foreground">Coffee Lover</p>
+            <p className="text-sm text-muted-foreground mt-1">Best ideas brew here</p>
+          </BentoCard>
+
+          {/* Connect Card */}
+          <BentoCard delay={0.3}>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-sm text-muted-foreground uppercase tracking-wider">
+                Connect
+              </span>
+            </div>
+            <div className="flex gap-3 mt-2">
+              <a
+                href="#"
+                className="p-2.5 bg-secondary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="p-2.5 bg-secondary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="p-2.5 bg-secondary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </BentoCard>
+
+          {/* Stats Section */}
+          <div className="md:col-span-4 grid grid-cols-3 gap-4 md:gap-6">
+            {stats.map((stat, index) => (
+              <BentoCard key={stat.label} delay={0.4 + index * 0.1}>
+                <div className="text-center">
+                  <p className="text-3xl md:text-4xl font-light text-primary mb-2">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-muted-foreground uppercase tracking-wider">
+                    {stat.label}
+                  </p>
+                </div>
+              </BentoCard>
+            ))}
           </div>
         </div>
       </div>

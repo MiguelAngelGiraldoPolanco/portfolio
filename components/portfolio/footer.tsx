@@ -1,49 +1,37 @@
-import { Facebook, Github, Linkedin } from "lucide-react";
+"use client";
 
-const socialLinks = [
-  {
-    name: "GitHub",
-    href: "https://github.com/MiguelAngelGiraldoPolanco",
-    icon: Github,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/miguel-angel-giraldo-100472160/",
-    icon: Linkedin,
-  },
-  {
-    name: "Facebook",
-    href: "https://www.facebook.com/miguel.a.giraldo.758",
-    icon: Facebook,
-  },
-];
+import { motion } from "framer-motion";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="py-8 px-6 border-t border-border">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* Copyright */}
-        <p className="text-sm text-muted-foreground">
-          &copy; {currentYear} Miguel Ángel Giraldo. Software & AI Engineer.
-        </p>
-
-        {/* Social Links */}
-        <div className="flex items-center gap-4">
-          {socialLinks.map((link) => (
+    <footer className="px-6 py-12 border-t border-border">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <p className="text-muted-foreground text-sm tracking-wide">
+            © {new Date().getFullYear()} — Designed & Built with care
+          </p>
+          
+          <div className="flex items-center gap-8">
             <a
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-primary transition-colors"
-              aria-label={link.name}
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide"
             >
-              <link.icon className="h-5 w-5" />
+              Resume
             </a>
-          ))}
-        </div>
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+            >
+              Contact
+            </a>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );

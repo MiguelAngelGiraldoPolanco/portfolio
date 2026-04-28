@@ -1,147 +1,109 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Folder} from "lucide-react";
-import Image from 'next/image';
+"use client";
+
+import { motion } from "framer-motion";
+import { BentoCard } from "./bento-card";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
-    id:1,
-    title: "E-Commerce Platform",
-    description:
-      "A full-featured online store with cart functionality, secure payments, and admin dashboard for inventory management.",
-    tech: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    github: "https://github.com",
-    live: "https://example.com",
+    title: "Sempiterno",
+    description: "AI-powered platform that increased user engagement by 340% through intelligent content recommendations and predictive analytics.",
+    tags: ["Next.js", "Python", "OpenAI", "PostgreSQL"],
+    image: "/projects/sempiterno.jpg",
+    featured: true,
   },
   {
-    id:2,
-    title: "Task Management App",
-    description:
-      "Collaborative project management tool with real-time updates, drag-and-drop interface, and team collaboration features.",
-    tech: ["React", "Node.js", "Socket.io", "MongoDB"],
-    github: "https://github.com",
-    live: "https://example.com",
+    title: "NeuralChat",
+    description: "Real-time conversational AI assistant with 99.9% uptime serving 50K+ daily active users.",
+    tags: ["TypeScript", "LangChain", "Redis"],
+    image: "/projects/neuralchat.jpg",
+    featured: false,
   },
   {
-    id:3,
-    title: "Sempiterno | Artisanal Branding & Landing Page",
-    description: "High-performance landing page developed for a premium handmade candle brand. Focused on conversion-driven design, SEO optimization, and seamless mobile experience.",
-    tech: ["Next.js 15", "Tailwind CSS", "TypeScript", "Framer Motion", "Vercel Analytics"],
-    image:"/mockup-sempiterno.png",
-    highlights: [
-      "Implemented automated CI/CD deployment via Vercel.",
-      "Mobile-first responsive design with custom-built UI components.",
-      "Optimized Core Web Vitals and SEO metadata for local search ranking.",
-      "Integrated real-time analytics to monitor user engagement."
-    ],
-    github: "https://github.com/MiguelAngelGiraldoPolanco/sempiterno-landing-page",
-    live: "https://sempiterno-landing-page.vercel.app/", 
-  }
+    title: "DataForge",
+    description: "ETL pipeline processing 2M+ records daily with automated ML model training and deployment.",
+    tags: ["Python", "Apache Airflow", "TensorFlow"],
+    image: "/projects/dataforge.jpg",
+    featured: false,
+  },
+  {
+    title: "CloudSync",
+    description: "Distributed file synchronization system with end-to-end encryption and real-time collaboration.",
+    tags: ["Go", "gRPC", "AWS"],
+    image: "/projects/cloudsync.jpg",
+    featured: false,
+  },
 ];
+
+function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+  const isFeatured = project.featured;
+  
+  return (
+    <BentoCard
+      delay={index * 0.1}
+      className={`group cursor-pointer ${isFeatured ? "md:col-span-2 md:row-span-2" : ""}`}
+    >
+      <div className={`flex flex-col h-full ${isFeatured ? "min-h-[400px]" : "min-h-[200px]"}`}>
+        <div className={`relative bg-secondary rounded-xl overflow-hidden mb-4 ${isFeatured ? "h-64 md:h-80" : "h-32 md:h-40"}`}>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-muted-foreground/40 text-sm tracking-widest uppercase">
+              {project.title}
+            </span>
+          </div>
+        </div>
+        
+        <div className="flex-1 flex flex-col">
+          <div className="flex items-start justify-between mb-2">
+            <h3 className={`font-medium text-foreground tracking-tight ${isFeatured ? "text-2xl" : "text-lg"}`}>
+              {project.title}
+            </h3>
+            <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+          
+          <p className={`text-muted-foreground leading-relaxed mb-4 ${isFeatured ? "text-base" : "text-sm"}`}>
+            {project.description}
+          </p>
+          
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1 text-xs tracking-wide bg-secondary text-muted-foreground rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </BentoCard>
+  );
+}
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6">
+    <section className="px-6 py-24">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured <span className="text-primary">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of projects that showcase my skills and passion for
-            building exceptional web applications.
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <p className="text-muted-foreground uppercase tracking-[0.3em] text-sm mb-3">
+            Selected Work
           </p>
-        </div>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+            Featured Projects
+          </h2>
+        </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="bg-card border-border hover:border-primary/30 transition-all duration-300 group overflow-hidden"
-            >{/* --- NUEVA SECCIÓN DE IMAGEN DINÁMICA --- */}
-              <div className="relative h-48 w-full border-b border-border overflow-hidden">
-                {project.image ? (
-                  // Si el proyecto tiene imagen en los datos, muestra el Mockup
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    priority={index === 0} // Optimiza la carga de la primera imagen
-                  />
-                ) : (
-                  // Si NO tiene imagen, muestra el placeholder de la carpeta
-                  <div className="h-full w-full bg-secondary/50 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
-                    <Folder className="h-16 w-16 text-muted-foreground group-hover:text-primary/50 transition-colors" />
-                  </div>
-                )}
-              </div>
-              {/* --- FIN DE SECCIÓN DE IMAGEN --- */}
-              {/* Project Image Placeholder */}
-              {/* <div className="h-48 bg-secondary/50 flex items-center justify-center border-b border-border group-hover:bg-primary/5 transition-colors">
-                <Folder className="h-16 w-16 text-muted-foreground group-hover:text-primary/50 transition-colors" />
-              </div> */}
-
-              <CardContent className="p-6">
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-secondary text-xs font-medium text-foreground rounded-full border border-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 border-border hover:bg-secondary hover:border-primary/30"
-                    asChild
-                  >
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
-                    asChild
-                  >
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
       </div>

@@ -1,14 +1,21 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geistSans = Geist({ 
+  subsets: ["latin"],
+  variable: '--font-geist-sans',
+});
+
+const playfair = Playfair_Display({ 
+  subsets: ["latin"],
+  variable: '--font-playfair',
+});
 
 export const metadata: Metadata = {
-  title: 'Developer Portfolio | Fullstack Developer & Problem Solver',
-  description: 'Professional portfolio showcasing fullstack development skills, projects, and experience. Specializing in React, Node.js, and modern web technologies.',
+  title: 'Miguel Angel Giraldo | AI Software Engineer',
+  description: 'AI Software Engineer focused on building intelligent systems with craft and intention.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -35,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-background">
-      <body className="font-sans antialiased bg-background text-foreground">
+    <html lang="en" className="bg-background">
+      <body className={`${geistSans.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
