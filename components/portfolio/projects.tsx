@@ -1,9 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Folder } from "lucide-react";
+import { Github, ExternalLink, Folder} from "lucide-react";
+import Image from 'next/image';
 
 const projects = [
   {
+    id:1,
     title: "E-Commerce Platform",
     description:
       "A full-featured online store with cart functionality, secure payments, and admin dashboard for inventory management.",
@@ -12,6 +14,7 @@ const projects = [
     live: "https://example.com",
   },
   {
+    id:2,
     title: "Task Management App",
     description:
       "Collaborative project management tool with real-time updates, drag-and-drop interface, and team collaboration features.",
@@ -20,12 +23,20 @@ const projects = [
     live: "https://example.com",
   },
   {
-    title: "Full-Stack Dropshipping Ecosystem",
-    description: "A complete e-commerce solution featuring a Vue.js frontend and a Node.js/Express backend. Integrated Stripe for secure payments and AdminJS for advanced inventory management. Fully containerized with Docker for seamless deployment.",
-    tech: ["Vue 3", "Node.js", "PostgreSQL", "Docker", "Stripe API"],
-    github: "https://github.com/MiguelAngelGiraldoPolanco/DropshippingApp",
-    live: "", // Aquí podrías poner un link si lo despliegas en el futuro
-  },
+    id:3,
+    title: "Sempiterno | Artisanal Branding & Landing Page",
+    description: "High-performance landing page developed for a premium handmade candle brand. Focused on conversion-driven design, SEO optimization, and seamless mobile experience.",
+    tech: ["Next.js 15", "Tailwind CSS", "TypeScript", "Framer Motion", "Vercel Analytics"],
+    image:"/mockup-sempiterno.png",
+    highlights: [
+      "Implemented automated CI/CD deployment via Vercel.",
+      "Mobile-first responsive design with custom-built UI components.",
+      "Optimized Core Web Vitals and SEO metadata for local search ranking.",
+      "Integrated real-time analytics to monitor user engagement."
+    ],
+    github: "https://github.com/MiguelAngelGiraldoPolanco/sempiterno-landing-page",
+    live: "https://sempiterno-landing-page.vercel.app/", 
+  }
 ];
 
 export function Projects() {
@@ -50,11 +61,29 @@ export function Projects() {
             <Card
               key={index}
               className="bg-card border-border hover:border-primary/30 transition-all duration-300 group overflow-hidden"
-            >
-              {/* Project Image Placeholder */}
-              <div className="h-48 bg-secondary/50 flex items-center justify-center border-b border-border group-hover:bg-primary/5 transition-colors">
-                <Folder className="h-16 w-16 text-muted-foreground group-hover:text-primary/50 transition-colors" />
+            >{/* --- NUEVA SECCIÓN DE IMAGEN DINÁMICA --- */}
+              <div className="relative h-48 w-full border-b border-border overflow-hidden">
+                {project.image ? (
+                  // Si el proyecto tiene imagen en los datos, muestra el Mockup
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority={index === 0} // Optimiza la carga de la primera imagen
+                  />
+                ) : (
+                  // Si NO tiene imagen, muestra el placeholder de la carpeta
+                  <div className="h-full w-full bg-secondary/50 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
+                    <Folder className="h-16 w-16 text-muted-foreground group-hover:text-primary/50 transition-colors" />
+                  </div>
+                )}
               </div>
+              {/* --- FIN DE SECCIÓN DE IMAGEN --- */}
+              {/* Project Image Placeholder */}
+              {/* <div className="h-48 bg-secondary/50 flex items-center justify-center border-b border-border group-hover:bg-primary/5 transition-colors">
+                <Folder className="h-16 w-16 text-muted-foreground group-hover:text-primary/50 transition-colors" />
+              </div> */}
 
               <CardContent className="p-6">
                 {/* Title */}
