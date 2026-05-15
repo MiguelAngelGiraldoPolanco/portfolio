@@ -9,9 +9,7 @@ export function About() {
         About
       </h2>
       <p className="text-foreground leading-relaxed md:text-lg max-w-prose">
-        I build intelligent systems with craft and intention. My work focuses on the intersection
-        of artificial intelligence and human experience, creating tools that feel both powerful
-        and considered. Based in Spain.
+        Developer focused on Artificial Intelligence integration. With a solid foundation in software development, I specialize in building robust APIs, connecting vector databases, and deploying efficient Language Models (LLMs). Clean code, automated testing, and scalable architecture, based in Spain.
       </p>
     </section>
   );

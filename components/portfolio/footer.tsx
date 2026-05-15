@@ -6,7 +6,7 @@ export function Footer() {
     <footer>
       <hr className="border-t border-border mb-6" />
       <p className="text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()}
+        &copy; Miguel Angel Giraldo {new Date().getFullYear()}
       </p>
     </footer>
   );
