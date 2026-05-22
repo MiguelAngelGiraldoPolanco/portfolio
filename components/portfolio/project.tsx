@@ -1,8 +1,8 @@
 "use client";
 const projects = [
     {
-        title: "pri0 | Sovereign AI Infrastructure & Enterprise Gateway",
-        description: "Architected a secure, automated deployment platform for sovereign AI agents and open-source models hosted natively within AWS Region Spain. Engineered a developer-first experience combining a high-conversion landing page with dedicated cloud pipelines that eliminate per-token utility costs and ensure absolute GDPR compliance for regulated industries.",
+        title: "pri0.com | Sovereign AI Infrastructure & Enterprise Gateway",
+        description: "Architected a secure, automated deployment platform for sovereign AI agents and open-source models hosted natively within AWS or Google Cloud Region Spain. Engineered a developer-first experience combining a high-conversion landing page with dedicated cloud pipelines that eliminate per-token utility costs and ensure absolute GDPR compliance for regulated industries.",
         link: "https://pri0.com",
         githubf: "https://github.com/MiguelAngelGiraldoPolanco",
         githubb: "https://github.com/MiguelAngelGiraldoPolanco",
