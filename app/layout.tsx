@@ -16,7 +16,6 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Miguel Angel Giraldo | AI Software Engineer',
   description: 'AI Software Engineer focused on building intelligent systems with craft and intention.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -42,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className="bg-background" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

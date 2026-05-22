@@ -1,6 +1,13 @@
 "use client";
 const projects = [
     {
+        title: "pri0 | Sovereign AI Infrastructure & Enterprise Gateway",
+        description: "Architected a secure, automated deployment platform for sovereign AI agents and open-source models hosted natively within AWS Region Spain. Engineered a developer-first experience combining a high-conversion landing page with dedicated cloud pipelines that eliminate per-token utility costs and ensure absolute GDPR compliance for regulated industries.",
+        link: "https://pri0.com",
+        githubf: "https://github.com/MiguelAngelGiraldoPolanco",
+        githubb: "https://github.com/MiguelAngelGiraldoPolanco",
+    },
+    {
         title: "Sempiterno | Full-Stack Platform & Business Intelligence",
         description: "End-to-end development of a digital preservation and e-commerce platform. Engineered a scalable architecture featuring a high-conversion landing page and a custom administrative dashboard for automated sales tracking, ad metrics analytics, and customer database management.",
         link: "https://sempiterno-landing-page.vercel.app",

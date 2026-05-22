@@ -9,7 +9,7 @@ export function Hero() {
                 Miguel Angel Giraldo
             </h1>
             <p className="mt-4 text-lg md:text-xl text-muted-foreground tracking-wide">
-                Software Engineer
+                AI Software Engineer
             </p>
         </header>
     )
