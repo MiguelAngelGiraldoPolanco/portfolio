@@ -1,6 +1,13 @@
 "use client";
 const projects = [
     {
+        title: "(Personal Project) | Agents for Social Media & Content Creation",
+        description: "A personal project featuring an autonomous AI agent system built to accelerate LinkedIn audience growth and visibility. By leveraging open-source LLMs locally, the system continuously analyzes trending topics and post comments to discover viral content opportunities. It then automatically drafts and refines high-converting, technical posts aimed at maximizing impressions, engagement, and follower conversion without relying on expensive external APIs.",
+        link: "#",
+        githubf: "#",
+        githubb: "https://github.com/MiguelAngelGiraldoPolanco/crew_linkedin",
+    },
+    {
         title: "pri0.com | Sovereign AI Infrastructure & Enterprise Gateway",
         description: "Architected a secure, automated deployment platform for sovereign AI agents and open-source models hosted natively within AWS or Google Cloud Region Spain. Engineered a developer-first experience combining a high-conversion landing page with dedicated cloud pipelines that eliminate per-token utility costs and ensure absolute GDPR compliance for regulated industries.",
         link: "https://pri0.com",
