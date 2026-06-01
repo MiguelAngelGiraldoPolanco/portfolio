@@ -1,6 +1,13 @@
 "use client";
 const projects = [
     {
+        title: "(Open Source Library) | Pri0-SDK: Intelligent Data Sanitization",
+        description: "A high-performance, developer-first SDK designed for privacy-centric data masking. Built on a modular, provider-based architecture, it enables automated, rule-based sanitization of sensitive information (PII) across global jurisdictions. The system features a CI/CD-validated regex registry, dynamic pattern validation, and strict type safety, ensuring reliable PII protection for technical applications without compromising data integrity.",
+        link: "#",
+        githubf: "#",
+        githubb: "https://github.com/MiguelAngelGiraldoPolanco/pri0-sdk",
+    },
+    {
         title: "(Personal Project) | Agents for Social Media & Content Creation",
         description: "A personal project featuring an autonomous AI agent system built to accelerate LinkedIn audience growth and visibility. By leveraging open-source LLMs locally, the system continuously analyzes trending topics and post comments to discover viral content opportunities. It then automatically drafts and refines high-converting, technical posts aimed at maximizing impressions, engagement, and follower conversion without relying on expensive external APIs.",
         link: "#",
@@ -39,35 +46,34 @@ export function Project() {
                         <p className="text-muted-foreground italic mb-3 leading-relaxed">
                             {project.description}
                         </p>
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-sm text-foreground hover:text-muted-foreground transition-colors duration-200"
-                        >
-                            View Project
-                            <span className="ml-1">&rarr;</span>
-                        </a>
-                        <p></p>
-                        <a
-                            href={project.githubf}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-sm text-foreground hover:text-muted-foreground transition-colors duration-200"
-                        >
-                            GitHub-Fronted
-                            <span className="ml-1">&rarr;</span>
-                        </a>
-                        <p></p>
-                        <a
-                            href={project.githubb}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-sm text-foreground hover:text-muted-foreground transition-colors duration-200"
-                        >
-                            GitHub-Backend
-                            <span className="ml-1">&rarr;</span>
-                        </a>
+
+                        {/* Mostrar link del proyecto solo si existe y no es "#" */}
+                        {project.link && project.link !== "#" && (
+                            <div className="mb-1">
+                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-foreground hover:text-muted-foreground transition-colors duration-200">
+                                    View Project <span className="ml-1">&rarr;</span>
+                                </a>
+                            </div>
+                        )}
+
+                        {/* Mostrar link de Frontend solo si existe y no es "#" */}
+                        {project.githubf && project.githubf !== "#" && (
+                            <div className="mb-1">
+                                <a href={project.githubf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-foreground hover:text-muted-foreground transition-colors duration-200">
+                                    GitHub-Frontend <span className="ml-1">&rarr;</span>
+                                </a>
+                            </div>
+                        )}
+
+                        {/* Mostrar link de Backend solo si existe y no es "#" */}
+                        {project.githubb && project.githubb !== "#" && (
+                            <div className="mb-1">
+                                <a href={project.githubb} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-foreground hover:text-muted-foreground transition-colors duration-200">
+                                    GitHub-Backend <span className="ml-1">&rarr;</span>
+                                </a>
+                            </div>
+                        )}
+
                         {index < projects.length - 1 && (
                             <hr className="border-t border-border mt-10 md:mt-12" />
                         )}
@@ -75,6 +81,6 @@ export function Project() {
                 ))}
             </div>
         </section>
-
     );
 }
+
