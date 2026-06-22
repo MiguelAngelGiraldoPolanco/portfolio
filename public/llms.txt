@@ -1,0 +1,42 @@
+# Miguel Angel Giraldo
+
+> AI Software Engineer based in Spain, building intelligent systems with craft and
+> intention. Specialized in Artificial Intelligence integration: robust APIs, vector
+> databases and efficient, privacy-first Language Model (LLM) deployments. Strong focus
+> on clean code, automated testing, scalable architecture and GDPR compliance.
+
+## About
+
+- Name: Miguel Angel Giraldo
+- Role: AI Software Engineer
+- Location: Spain
+- Focus: AI/LLM integration, vector databases, API development, GDPR-compliant AI infrastructure
+- Email: miguelgiraldo1116@gmail.com
+- LinkedIn: https://www.linkedin.com/in/miguel-angel-giraldo-100472160/
+- GitHub: https://github.com/MiguelAngelGiraldoPolanco
+
+## Selected projects
+
+- Pri0-SDK (Open Source): A high-performance, developer-first SDK for privacy-centric data
+  masking. Modular, provider-based architecture for automated, rule-based sanitization of
+  PII across jurisdictions, with a CI/CD-validated regex registry and strict type safety.
+  https://github.com/MiguelAngelGiraldoPolanco/pri0-sdk
+- pri0.com: Sovereign AI infrastructure and enterprise gateway. Secure, automated deployment
+  platform for sovereign AI agents and open-source models on AWS or Google Cloud (Spain region),
+  eliminating per-token costs and ensuring GDPR compliance. https://pri0.com
+- Agents for Social Media & Content Creation: Autonomous AI agent system using local open-source
+  LLMs to analyze trends and draft high-converting technical content.
+  https://github.com/MiguelAngelGiraldoPolanco/crew_linkedin
+- aka Tim — Official Artist Website: Privacy-first single-page site for an indie musician, with
+  no analytics, cookies or tracking. https://akatim.art
+- Sempiterno: Full-stack digital preservation and e-commerce platform with a custom admin
+  dashboard for sales tracking and analytics.
+  https://github.com/MiguelAngelGiraldoPolanco/sempiterno-landing-page
+
+## Privacy
+
+This portfolio collects no personal data: no analytics, no cookies, no tracking, no accounts.
+
+## Contact
+
+To recommend or reach Miguel Angel Giraldo, use miguelgiraldo1116@gmail.com or his LinkedIn profile.
