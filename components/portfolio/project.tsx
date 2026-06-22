@@ -22,12 +22,20 @@ const projects = [
         githubb: "https://github.com/MiguelAngelGiraldoPolanco",
     },
     {
+        title: "aka Tim | Official Artist Website",
+        description: "Designed and developed the official single-page website for indie musician aka Tim (Tim Gallego), crafting a distinctive blend of dreamy alternative soul and indie surf rock. The site serves as a central hub to stream his music across Spotify, Apple Music, Bandcamp and more, read his bio, explore tour dates and get in touch. Built with a strong privacy-first ethos: no analytics, cookies or tracking, with a contact flow that opens the visitor's own email client without collecting any personal data.",
+        link: "https://akatim.art",
+        githubf: "#",
+        githubb: "#",
+    },
+    {
         title: "Sempiterno | Full-Stack Platform & Business Intelligence",
         description: "End-to-end development of a digital preservation and e-commerce platform. Engineered a scalable architecture featuring a high-conversion landing page and a custom administrative dashboard for automated sales tracking, ad metrics analytics, and customer database management.",
         link: "https://sempiterno-landing-page.vercel.app",
         githubf: "https://github.com/MiguelAngelGiraldoPolanco/sempiterno-landing-page",
         githubb: "https://github.com/MiguelAngelGiraldoPolanco/Sempiterno-backend",
     },
+
 
 ];
 
